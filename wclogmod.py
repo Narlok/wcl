@@ -89,10 +89,12 @@ def readessentials():
     i=0
     while i<len(words):
         if "," in words[i]:
+            words[i]=words[i][0].upper()+words[i][:-1][1:]   #Capitalise first letter
             words[i]=words[i][:-1]
             i+=1
         else:
-            words[i]+= " " + words[i+1]
+            words[i]=words[i][0].upper()+words[i][1:]   #Capitalise first letter
+            words[i]+= " " + words[i+1][0].upper()+words[i+1][1:]
             words.pop(i+1)
     return(key,words)
 
